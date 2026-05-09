@@ -279,13 +279,28 @@ nav a.active {
    SERVICE DETAIL (services.html)
    ===================== */
 .service-item {
+  border-bottom: 1px solid var(--gold-faint);
+  padding-bottom: 3.5rem;
+}
+.service-item + .service-item { padding-top: 3.5rem; }
+.service-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.service-img-wrap {
+  height: 340px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.service-inner {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 2rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid var(--gold-faint);
 }
-.service-item:last-of-type { border-bottom: none; }
 .service-number {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3.5rem;
@@ -514,7 +529,8 @@ nav a.active {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .service-item {
+  .service-img-wrap { height: 220px; }
+  .service-inner {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
