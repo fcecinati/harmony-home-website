@@ -159,7 +159,6 @@ nav a.active {
 .hero-logo {
   width: 200px;
   margin-bottom: 2.5rem;
-  mix-blend-mode: multiply;
 }
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
