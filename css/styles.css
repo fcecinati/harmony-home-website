@@ -1,0 +1,473 @@
+/* =====================
+   VARIABLES
+   ===================== */
+:root {
+  --cream:       #F8F4ED;
+  --cream-dark:  #EDE7D9;
+  --gold:        #B8933F;
+  --gold-muted:  #C9A96E;
+  --gold-faint:  rgba(184, 147, 63, 0.22);
+  --text:        #3D3020;
+  --text-light:  #7A6B55;
+}
+
+/* =====================
+   RESET & BASE
+   ===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+img  { max-width: 100%; height: auto; display: block; }
+a    { color: inherit; text-decoration: none; }
+ul   { list-style: none; }
+
+/* =====================
+   HEADER
+   ===================== */
+.site-header-outer {
+  border-bottom: 1px solid var(--gold-faint);
+}
+
+.site-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { display: flex; flex-direction: column; }
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.brand-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+}
+
+nav ul { display: flex; gap: 2.5rem; }
+nav a {
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  transition: color 0.3s;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+nav a:hover,
+nav a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* =====================
+   CONTAINER
+   ===================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.btn:hover          { background: var(--gold); color: var(--cream); }
+.btn.btn-filled     { background: var(--gold); color: var(--cream); }
+.btn.btn-filled:hover { background: transparent; color: var(--gold); }
+
+/* =====================
+   ORNAMENT / DIVIDER
+   ===================== */
+.ornament {
+  width: 44px;
+  height: 1px;
+  background: var(--gold-muted);
+  margin: 1rem auto;
+}
+
+/* =====================
+   SECTION HEADER
+   ===================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.section-header p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* =====================
+   HERO (index)
+   ===================== */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem 4.5rem;
+  border-bottom: 1px solid var(--gold-faint);
+}
+.hero-logo {
+  width: 190px;
+  margin: 0 auto 2.5rem;
+  mix-blend-mode: multiply;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.hero p {
+  font-size: 0.93rem;
+  color: var(--text-light);
+  max-width: 460px;
+  margin: 0 auto 2.5rem;
+}
+
+/* =====================
+   SERVICE CARDS
+   ===================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.service-card {
+  border: 1px solid var(--gold-faint);
+  padding: 2.5rem 2rem;
+  transition: border-color 0.3s;
+}
+.service-card:hover { border-color: var(--gold); }
+.card-icon {
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.35em;
+  margin-bottom: 1.2rem;
+}
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+.service-card p {
+  font-size: 0.87rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* =====================
+   CTA STRIP
+   ===================== */
+.cta-strip {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--cream-dark);
+  border-top: 1px solid var(--gold-faint);
+  border-bottom: 1px solid var(--gold-faint);
+}
+.cta-strip h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+.cta-strip p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =====================
+   PAGE HERO (inner pages)
+   ===================== */
+.page-hero {
+  text-align: center;
+  padding: 4.5rem 2rem 3.5rem;
+  border-bottom: 1px solid var(--gold-faint);
+  margin-bottom: 4rem;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+.page-hero p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* =====================
+   SERVICE DETAIL (services.html)
+   ===================== */
+.service-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--gold-faint);
+}
+.service-item:last-of-type { border-bottom: none; }
+.service-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold-faint);
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+.service-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.service-body p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  max-width: 620px;
+}
+.service-body .eco-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--gold-muted);
+  letter-spacing: 0.06em;
+}
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-text {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.about-text p {
+  font-size: 0.93rem;
+  color: var(--text-light);
+  line-height: 1.95;
+  margin-bottom: 1.5rem;
+}
+.quote-block {
+  border-left: 2px solid var(--gold);
+  padding: 1.25rem 2rem;
+  margin: 3rem 0;
+}
+.quote-block q {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.6;
+  quotes: none;
+}
+.quote-block cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 1.5rem;
+  margin: 3.5rem 0;
+}
+.value-item {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px solid var(--gold-faint);
+}
+.value-stat {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.value-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* =====================
+   CONTACT PAGE
+   ===================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+.contact-col h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.contact-col p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+.contact-link-btn {
+  display: block;
+  text-align: center;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.63rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  transition: background 0.3s, color 0.3s;
+}
+.contact-link-btn:hover { background: var(--gold); color: var(--cream); }
+.contact-link-btn.primary {
+  background: var(--gold);
+  color: var(--cream);
+}
+.contact-link-btn.primary:hover { background: transparent; color: var(--gold); }
+
+.contact-info-box {
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--gold-faint);
+}
+.contact-info-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+.contact-info-box p {
+  font-size: 0.87rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin-top: 5rem;
+  border-top: 1px solid var(--gold-faint);
+}
+.site-footer p {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
+/* =====================
+   UTILITIES
+   ===================== */
+.text-center   { text-align: center; }
+.mt-xl         { margin-top: 5rem; }
+.mb-xl         { margin-bottom: 5rem; }
+.mt-lg         { margin-top: 3.5rem; }
+.mb-lg         { margin-bottom: 3.5rem; }
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+  }
+  nav ul {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .service-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .service-number { font-size: 2rem; }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
